@@ -65,21 +65,6 @@ text_clf = text_clf.fit(np.array(X_train_tfidf), np.array(twenty_train.target),
                   batch_size = 10, #Faz ajuste de pesos de 10 em 10
                   epochs = 100) #Qtas vezes o ajuste eh feito
 
-
-'''V2 - Bag of words versao Compacta com SVM'''
-#Combina os 2 métodos acima. Rodar separadamente
-
-from sklearn.feature_extraction.text import CountVectorizer, TfidfTransformer
-from sklearn.linear_model import SGDClassifier
-from sklearn.pipeline import Pipeline
-text_clf = Pipeline([('vect', CountVectorizer(ngram_range=(1,2),stop_words='english')),
-                     ('tfidf', TfidfTransformer(use_idf=True)),
-                     ('clf', SGDClassifier(loss='hinge', penalty='l2', alpha=0.001, max_iter=5, random_state=42)),
-])
-
-text_clf = text_clf.fit(twenty_train.data, twenty_train.target)
-
-
 '''Teste'''
 
 import numpy as np
