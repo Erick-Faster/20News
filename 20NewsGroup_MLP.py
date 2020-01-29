@@ -72,6 +72,8 @@ twenty_test = fetch_20newsgroups (subset='test', shuffle=True)
 predicted_svm = text_clf.predict(twenty_test.data)
 accuracy_SVM = np.mean(predicted_svm == twenty_test.target)
 
+'''Daqui pra baixo sao codigos de teste'''
+
 '''Grid Search'''
 
 from sklearn.model_selection import GridSearchCV
